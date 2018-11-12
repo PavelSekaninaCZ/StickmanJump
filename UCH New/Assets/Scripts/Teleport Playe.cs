@@ -14,7 +14,7 @@ public class TeleportPlaye : MonoBehaviour
             transform.position = respawnPoint;
         }
 
-        if (other.gameObject.tag == "Checkpoint")
+        if (other.gameObject.tag == "Odvaha")
         {
             respawnPoint = other.transform.position;
         }
