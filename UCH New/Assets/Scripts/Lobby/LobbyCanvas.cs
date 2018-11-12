@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LobbyCanvas : MonoBehaviour
 {
+
     [SerializeField]
     private RoomLayoutGroup _roomLayoutGroup;
     private RoomLayoutGroup RoomLayoutGroup
@@ -13,16 +14,14 @@ public class LobbyCanvas : MonoBehaviour
 
     public void OnClickJoinRoom(string roomName)
     {
-      if (PhotonNetwork.JoinRoom(roomName))
+        if (PhotonNetwork.JoinRoom(roomName))
         {
 
         }
         else
         {
-            print("Join room failed");
+            print("Join room failed.");
         }
-
-
     }
 
 }

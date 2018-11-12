@@ -10,9 +10,7 @@ public class MainCanvasManager : MonoBehaviour {
     private LobbyCanvas _lobbyCanvas;
     public LobbyCanvas LobbyCanvas
     {
-
-    get { return _lobbyCanvas; }
-
+        get { return _lobbyCanvas; }
     }
 
     [SerializeField]
