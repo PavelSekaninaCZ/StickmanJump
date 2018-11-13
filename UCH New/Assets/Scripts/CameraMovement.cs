@@ -11,8 +11,8 @@ public class CameraMovement : MonoBehaviour
     {
 
         cameraPosition = new Vector3(
-                        Mathf.SmoothStep(transform.position.x, target.transform.position.x, 0.1f),
-                        Mathf.SmoothStep(transform.position.y, target.transform.position.y, 0.1f));
+                        Mathf.SmoothStep(transform.position.x, target.transform.position.x, 0.5f),
+                        Mathf.SmoothStep(transform.position.y, target.transform.position.y, 0.5f));
 
     }
 
