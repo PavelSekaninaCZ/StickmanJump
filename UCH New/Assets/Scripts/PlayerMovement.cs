@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     public CharacterController2D controller;
     public Animator animator;
+    public GameObject playerCamera;
 
     public float runSpeed = 40f;
 
@@ -17,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool jump { get; private set; }
 
-    
+
 
     private void SmoothMove()
     {
@@ -33,8 +34,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (PhotonView.isMine)
             CheckInput();
+
         else
+
             SmoothMove();
+
+        if (PhotonView.isMine)
+        {
+            playerCamera.SetActive(true);
+        }
+        else
+        {
+            playerCamera.SetActive(false);
+        }
     }
 
     private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
