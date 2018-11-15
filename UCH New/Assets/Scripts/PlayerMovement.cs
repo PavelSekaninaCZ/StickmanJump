@@ -18,15 +18,20 @@ public class PlayerMovement : MonoBehaviour
 
     public bool jump { get; private set; }
 
-
+    public bool UseTransformView = true;
+    private Animator m_animator;
 
     private void SmoothMove()
     {
+        if (UseTransformView)
+            return;
+
         transform.position = Vector3.Lerp(transform.position, TargetPosition, 0.25f);
     }
 
     private void Awake()
     {
+        m_animator = GetComponent<Animator>();
         PhotonView = GetComponent<PhotonView>();
     }
 
@@ -51,6 +56,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
+
+        if (UseTransformView)
+            return;
+
+
         if (stream.isWriting)
         {
             stream.SendNext(transform.position);
@@ -71,6 +81,11 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = true;
         }
+
+        m_animator.GetFloat("Input, vertical");
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            m_animator.SetTrigger("Taunt");
     }
 
     void FixedUpdate()
