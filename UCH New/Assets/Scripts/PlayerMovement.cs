@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 TargetPosition;
 
     private PhotonView PhotonView;
+    public bool UseTransformView = true;
+    private Animator m_animator;
 
     public CharacterController2D controller;
     public Animator animator;
@@ -18,8 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool jump { get; private set; }
 
-    public bool UseTransformView = true;
-    private Animator m_animator;
+
 
     private void SmoothMove()
     {
@@ -31,7 +32,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        m_animator = GetComponent<Animator>();
         PhotonView = GetComponent<PhotonView>();
     }
 
@@ -56,10 +56,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
     {
-
         if (UseTransformView)
             return;
-
 
         if (stream.isWriting)
         {
@@ -82,10 +80,7 @@ public class PlayerMovement : MonoBehaviour
             jump = true;
         }
 
-        m_animator.GetFloat("Input, vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space))
-            m_animator.SetTrigger("Taunt");
     }
 
     void FixedUpdate()
