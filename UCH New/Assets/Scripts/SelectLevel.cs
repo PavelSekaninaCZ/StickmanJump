@@ -2,17 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LeaveCurrentMatch : MonoBehaviour {
+public class SelectLevel : MonoBehaviour {
 
-    public void OnClick_LeaveMatch()
+    public void LoadScene(string sceneName)
     {
-        PhotonNetwork.LeaveRoom();
-        PhotonNetwork.LoadLevel(0);
+        PhotonNetwork.LoadLevel(sceneName);
     }
 
     public void OnClickSpawnPlayer()
     {
         GameObject.Find("PlayerNetwork").GetComponent<PlayerNetwork>().RPC_CreatePlayer();
-        Debug.Log("Func");
     }
 }

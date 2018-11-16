@@ -18,13 +18,13 @@ public class PlayerNetwork : MonoBehaviour {
 
         PhotonNetwork.sendRate = 60;
         PhotonNetwork.sendRateOnSerialize = 30;
-
+        PhotonNetwork.automaticallySyncScene = true;
         SceneManager.sceneLoaded += OnSceneFinishedLoading;
 	}
 
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        if (scene.name == "1Map")
+        if (scene.name == "Level 1")
         {
             if (PhotonNetwork.isMasterClient)
                 MasterLoadedGame();
@@ -47,11 +47,11 @@ public class PlayerNetwork : MonoBehaviour {
     [PunRPC]
     private void RPC_LoadGameOthers()
     {
-        PhotonNetwork.LoadLevel(2);
+        PhotonNetwork.LoadLevel(3);
     }
 
     [PunRPC]
-    private void RPC_LoadedGameScene()
+    public void RPC_LoadedGameScene()
     {
         PlayerInGame++;
         if (PlayerInGame == PhotonNetwork.playerList.Length)
@@ -62,7 +62,7 @@ public class PlayerNetwork : MonoBehaviour {
     }
 
     [PunRPC]
-    private void RPC_CreatePlayer()
+    public void RPC_CreatePlayer()
     {
         float randomValue = Random.Range(0f, 15f);
         PhotonNetwork.Instantiate(Path.Combine("Prefabs", "NewPlayer"), Vector3.up * randomValue, Quaternion.identity, 0);
