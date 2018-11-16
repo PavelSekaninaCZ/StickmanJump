@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Vector3 TargetPosition;
+    private Quaternion TargetRotation;
 
     private PhotonView PhotonView;
     public bool UseTransformView = true;
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
             return;
 
         transform.position = Vector3.Lerp(transform.position, TargetPosition, 0.25f);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, TargetRotation, 500 * Time.deltaTime);
     }
 
     private void Awake()
@@ -62,10 +64,12 @@ public class PlayerMovement : MonoBehaviour
         if (stream.isWriting)
         {
             stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
         }
         else
         {
             TargetPosition = (Vector3)stream.ReceiveNext();
+            TargetRotation = (Quaternion)stream.ReceiveNext();
         }
     }
 
