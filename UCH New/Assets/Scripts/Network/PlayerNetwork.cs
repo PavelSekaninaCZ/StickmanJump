@@ -27,16 +27,100 @@ public class PlayerNetwork : MonoBehaviour {
         if (scene.name == "Level 1")
         {
             if (PhotonNetwork.isMasterClient)
-                MasterLoadedGame();
+                MasterLoadedGameLevel1();
+            else
+                NoMasterLoadedGame();
+        }
+
+        if (scene.name == "Level 2")
+        {
+            if (PhotonNetwork.isMasterClient)
+                MasterLoadedGameLevel2();
+            else
+                NoMasterLoadedGame();
+        }
+
+        if (scene.name == "Level 3")
+        {
+            if (PhotonNetwork.isMasterClient)
+                MasterLoadedGameLevel3();
+            else
+                NoMasterLoadedGame();
+        }
+
+        if (scene.name == "Level 4")
+        {
+            if (PhotonNetwork.isMasterClient)
+                MasterLoadedGameLevel4();
+            else
+                NoMasterLoadedGame();
+        }
+
+        if (scene.name == "Level 5")
+        {
+            if (PhotonNetwork.isMasterClient)
+                MasterLoadedGameLevel5();
+            else
+                NoMasterLoadedGame();
+        }
+
+        if (scene.name == "Level 6")
+        {
+            if (PhotonNetwork.isMasterClient)
+                MasterLoadedGameLevel6();
+            else
+                NoMasterLoadedGame();
+        }
+
+        if (scene.name == "Level 7")
+        {
+            if (PhotonNetwork.isMasterClient)
+                MasterLoadedGameLevel7();
             else
                 NoMasterLoadedGame();
         }
     }
 
-    private void MasterLoadedGame()
+    private void MasterLoadedGameLevel1()
     {
         PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient);
-        PhotonView.RPC("RPC_LoadGameOthers", PhotonTargets.Others);
+        PhotonView.RPC("RPC_LoadGameOthersLevel1", PhotonTargets.Others);
+    }
+
+    private void MasterLoadedGameLevel2()
+    {
+        PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient);
+        PhotonView.RPC("RPC_LoadGameOthersLevel2", PhotonTargets.Others);
+    }
+
+    private void MasterLoadedGameLevel3()
+    {
+        PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient);
+        PhotonView.RPC("RPC_LoadGameOthersLevel3", PhotonTargets.Others);
+    }
+
+    private void MasterLoadedGameLevel4()
+    {
+        PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient);
+        PhotonView.RPC("RPC_LoadGameOthersLevel4", PhotonTargets.Others);
+    }
+
+    private void MasterLoadedGameLevel5()
+    {
+        PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient);
+        PhotonView.RPC("RPC_LoadGameOthersLevel5", PhotonTargets.Others);
+    }
+
+    private void MasterLoadedGameLevel6()
+    {
+        PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient);
+        PhotonView.RPC("RPC_LoadGameOthersLevel6", PhotonTargets.Others);
+    }
+
+    private void MasterLoadedGameLevel7()
+    {
+        PhotonView.RPC("RPC_LoadedGameScene", PhotonTargets.MasterClient);
+        PhotonView.RPC("RPC_LoadGameOthersLevel7", PhotonTargets.Others);
     }
 
     private void NoMasterLoadedGame()
@@ -45,9 +129,45 @@ public class PlayerNetwork : MonoBehaviour {
     }
 
     [PunRPC]
-    private void RPC_LoadGameOthers()
+    private void RPC_LoadGameOthersLevel1()
     {
         PhotonNetwork.LoadLevel(3);
+    }
+
+    [PunRPC]
+    private void RPC_LoadGameOthersLevel2()
+    {
+        PhotonNetwork.LoadLevel(4);
+    }
+
+    [PunRPC]
+    private void RPC_LoadGameOthersLevel3()
+    {
+        PhotonNetwork.LoadLevel(5);
+    }
+
+    [PunRPC]
+    private void RPC_LoadGameOthersLevel4()
+    {
+        PhotonNetwork.LoadLevel(6);
+    }
+
+    [PunRPC]
+    private void RPC_LoadGameOthersLevel5()
+    {
+        PhotonNetwork.LoadLevel(7);
+    }
+
+    [PunRPC]
+    private void RPC_LoadGameOthersLevel6()
+    {
+        PhotonNetwork.LoadLevel(8);
+    }
+
+    [PunRPC]
+    private void RPC_LoadGameOthersLevel7()
+    {
+        PhotonNetwork.LoadLevel(9);
     }
 
     [PunRPC]

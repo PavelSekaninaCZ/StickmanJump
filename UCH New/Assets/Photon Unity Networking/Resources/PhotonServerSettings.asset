@@ -40,4 +40,11 @@ MonoBehaviour:
   - RPC_LoadGameScene
   - RPC_CreatePlayer
   - RPC_LoadedGameScene
+  - RPC_LoadGameOthersLevel1
+  - RPC_LoadGameOthersLevel2
+  - RPC_LoadGameOthersLevel3
+  - RPC_LoadGameOthersLevel4
+  - RPC_LoadGameOthersLevel5
+  - RPC_LoadGameOthersLevel6
+  - RPC_LoadGameOthersLevel7
   DisableAutoOpenWizard: 1
