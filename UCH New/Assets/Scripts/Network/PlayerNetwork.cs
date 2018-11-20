@@ -131,43 +131,43 @@ public class PlayerNetwork : MonoBehaviour {
     [PunRPC]
     private void RPC_LoadGameOthersLevel1()
     {
-        PhotonNetwork.LoadLevel(3);
+        PhotonNetwork.LoadLevel(5);
     }
 
     [PunRPC]
     private void RPC_LoadGameOthersLevel2()
     {
-        PhotonNetwork.LoadLevel(4);
+        PhotonNetwork.LoadLevel(6);
     }
 
     [PunRPC]
     private void RPC_LoadGameOthersLevel3()
     {
-        PhotonNetwork.LoadLevel(5);
+        PhotonNetwork.LoadLevel(7);
     }
 
     [PunRPC]
     private void RPC_LoadGameOthersLevel4()
     {
-        PhotonNetwork.LoadLevel(6);
+        PhotonNetwork.LoadLevel(8);
     }
 
     [PunRPC]
     private void RPC_LoadGameOthersLevel5()
     {
-        PhotonNetwork.LoadLevel(7);
+        PhotonNetwork.LoadLevel(9);
     }
 
     [PunRPC]
     private void RPC_LoadGameOthersLevel6()
     {
-        PhotonNetwork.LoadLevel(8);
+        PhotonNetwork.LoadLevel(10);
     }
 
     [PunRPC]
     private void RPC_LoadGameOthersLevel7()
     {
-        PhotonNetwork.LoadLevel(9);
+        PhotonNetwork.LoadLevel(11);
     }
 
     [PunRPC]

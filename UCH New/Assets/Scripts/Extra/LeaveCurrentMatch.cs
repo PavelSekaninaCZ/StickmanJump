@@ -8,6 +8,12 @@ public class LeaveCurrentMatch : MonoBehaviour {
     {
         PhotonNetwork.LeaveRoom();
         PhotonNetwork.LoadLevel(0);
+        
+    }
+
+    public void Menu()
+    {
+        PhotonNetwork.LoadLevel(0);
     }
 
     public void OnClickSpawnPlayer()

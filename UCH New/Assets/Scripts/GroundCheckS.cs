@@ -1,28 +1,29 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class GroundCheck : MonoBehaviour
+public class GroundCheckS : MonoBehaviour
 {
 
-    private Jump player1;
+    private JumpS player;
+
 
     void Start()
     {
-        player1 = gameObject.GetComponentInParent<Jump>();
+        player = gameObject.GetComponentInParent<JumpS>();
     }
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        player1.grounded = true;
+        player.grounded = true;
     }
 
     void OnTriggerStay2D(Collider2D col)
     {
-        player1.grounded = true;
+        player.grounded = true;
     }
 
     void OnTriggerExit2D(Collider2D col)
     {
-        player1.grounded = false;
+        player.grounded = false;
     }
 }
