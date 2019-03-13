@@ -1,8 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerLayoutGroup : MonoBehaviour {
+
+    public Text pole;
+    public float koop;
+
+    void Start()
+    {
+        koop = 1;
+    }
 
     [SerializeField]
     private GameObject _playerListingPrefab;
@@ -66,6 +75,7 @@ public class PlayerLayoutGroup : MonoBehaviour {
         PlayerListings.Add(playerListing);
     }
 
+
     private void PlayerLeftRoom(PhotonPlayer photonPlayer)
     {
         int index = PlayerListings.FindIndex(x => x.PhotonPlayer == photonPlayer);
@@ -79,15 +89,29 @@ public class PlayerLayoutGroup : MonoBehaviour {
     public void OnClickRoomState()
     {
         if (!PhotonNetwork.isMasterClient)
-            Debug.Log("You aren't administrator.");
             return;
 
         PhotonNetwork.room.IsOpen = !PhotonNetwork.room.IsOpen;
         PhotonNetwork.room.IsVisible = PhotonNetwork.room.IsOpen;
+        TextChange();
     }
 
     public void OnClickLeaveRoom()
     {
         PhotonNetwork.LeaveRoom();
     }
+
+    public void TextChange()
+    {
+        if(koop == 1)
+        {
+            pole.text = "ROOM IS INVISIBLE";
+            koop = 0;
+        } else
+        {
+            pole.text = "ROOM IS VISIBLE";
+            koop = 1;
+        }
+    }
+    
 }
