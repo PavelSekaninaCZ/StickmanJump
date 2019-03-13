@@ -79,6 +79,7 @@ public class PlayerLayoutGroup : MonoBehaviour {
     public void OnClickRoomState()
     {
         if (!PhotonNetwork.isMasterClient)
+            Debug.Log("You aren't administrator.");
             return;
 
         PhotonNetwork.room.IsOpen = !PhotonNetwork.room.IsOpen;
