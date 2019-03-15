@@ -11,15 +11,15 @@ public class CameraMovement : MonoBehaviour
     {
 
         cameraPosition = new Vector3(
-                        Mathf.SmoothStep(transform.position.x, target.transform.position.x, 0.5f),
-                        Mathf.SmoothStep(transform.position.y, target.transform.position.y, 0.5f));
+                        Mathf.SmoothStep(transform.position.x, target.transform.position.x, 0.9f),
+                        Mathf.SmoothStep(transform.position.y, target.transform.position.y, 0.2f));
 
     }
 
     void LateUpdate()
     {
 
-        transform.position = cameraPosition + Vector3.forward * -10;
+        transform.position = cameraPosition + Vector3.forward * -1;
 
     }
 
